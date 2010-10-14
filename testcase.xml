@@ -1,0 +1,9 @@
+<tasks>
+	<task expandedContexts="('taskviewer',)" id="67753936:1286133078.73" startdate="2010-10-03 07:17:00" status="1" subject="Build VCAP Image">
+		<task expandedContexts="('taskviewer',)" id="66724368:1286133078.71" startdate="2010-10-03 07:17:52" status="1" subject="Prepare OS">
+			<task id="66678864:1286133078.71" startdate="2010-10-03 07:17:52" status="1" subject="Windows">
+				<task id="66631824:1286133078.7" startdate="2010-10-03 07:17:52" status="1" subject="Win2003"></task>
+			</task>
+		</task>
+	</task>
+</tasks>

@@ -1,0 +1,196 @@
+<?xml version='1.0'?>
+<?taskcoach release="1.1.4" tskversion="30"?>
+<tasks>
+ <task status="1" subject="Build VCAP Image" expandedContexts="('taskviewer',)" startdate="2010-10-03 07:17:00" id="67753936:1286133078.73">
+  <task status="1" subject="Prepare OS" expandedContexts="('taskviewer',)" startdate="2010-10-03 07:17:52" id="66724368:1286133078.71">
+   <task status="1" subject="Windows" expandedContexts="('taskviewer',)" startdate="2010-10-03 07:17:52" id="66678864:1286133078.71">
+    <task status="1" subject="Win2003" expandedContexts="('taskviewer',)" startdate="2010-10-03 07:17:52" id="66631824:1286133078.7">
+     <task status="1" subject="Remove IE Enhanced config" startdate="2010-10-03 07:17:52" id="63516496:1286133078.7"/>
+     <task status="1" subject="in NetBIOS properties, &quot;Maximize data throughput for NETWORK apps&quot;" startdate="2010-10-03 07:17:52" id="63538320:1286133078.7"/>
+     <task status="1" subject="Disable error reporting" startdate="2010-10-03 07:17:52" id="63539600:1286133078.7"/>
+     <task status="1" subject="Apply SP2" expandedContexts="('taskviewer',)" startdate="2010-10-03 07:17:52" id="66630608:1286133078.7">
+      <task status="1" subject="HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Rpc  DWORD Server2003NegotiateDisable set to 1" startdate="2010-10-03 07:17:52" id="63540944:1286133078.7"/>
+     </task>
+    </task>
+    <task status="1" subject="Win2008" startdate="2010-10-03 07:17:52" id="66643920:1286133078.7">
+     <task status="1" subject="disable UAC" startdate="2010-10-03 07:17:52" id="66642704:1286133078.7">
+      <task status="1" subject="msconfig, last tab" startdate="2010-10-03 07:17:52" id="66633232:1286133078.7"/>
+     </task>
+    </task>
+    <task status="1" subject="Set DEP for essential only" startdate="2010-10-03 07:17:52" id="66645200:1286133078.7"/>
+    <task status="1" subject="Change machine name" startdate="2010-10-03 07:17:52" id="66657296:1286133078.7">
+     <task status="1" subject="Install IIS" startdate="2010-10-03 07:17:52" id="66654800:1286133078.7"/>
+     <task status="1" subject="Add Loopback" startdate="2010-10-03 07:17:52" id="66656080:1286133078.7"/>
+    </task>
+    <task status="1" subject="If Oracle, disable ntfs updates" startdate="2010-10-03 07:17:52" id="66668112:1286133078.7">
+     <task status="1" subject="HKLM\SYSTEM\CurrentControlSet\Control\FileSystem DWORD NtfsDisableLastAccessUpdate set to 1" startdate="2010-10-03 07:17:52" id="66666896:1286133078.7"/>
+    </task>
+    <task status="1" subject="performance: best performance" startdate="2010-10-03 07:17:52" id="66669392:1286133078.7"/>
+   </task>
+   <task status="1" subject="utilities" startdate="2010-10-03 07:17:52" id="66716432:1286133078.71">
+    <task status="1" subject="Firefox" startdate="2010-10-03 07:17:52" id="66688208:1286133078.71">
+     <task status="1" subject="Firebug" startdate="2010-10-03 07:17:52" id="66680272:1286133078.71"/>
+     <task status="1" subject="tamper data" startdate="2010-10-03 07:17:52" id="66681552:1286133078.71"/>
+     <task status="1" subject="live http headers" startdate="2010-10-03 07:17:52" id="66682832:1286133078.71"/>
+    </task>
+    <task status="1" subject="7zip" startdate="2010-10-03 07:17:52" id="66690768:1286133078.71">
+     <task status="1" subject="careful with 64bit" startdate="2010-10-03 07:17:52" id="66689552:1286133078.71"/>
+    </task>
+    <task status="1" subject="filezilla" startdate="2010-10-03 07:17:52" id="66700304:1286133078.71"/>
+    <task status="1" subject="Fiddler (post-FF)" startdate="2010-10-03 07:17:52" id="66701584:1286133078.71"/>
+    <task status="1" subject="Ghostscript (if BI required)" startdate="2010-10-03 07:17:52" id="66702864:1286133078.71"/>
+   </task>
+   <task status="1" subject="Apply all available updates" startdate="2010-10-03 07:17:52" id="66718992:1286133078.71">
+    <task status="1" subject="Careful with IE8" startdate="2010-10-03 07:17:52" id="66717776:1286133078.71"/>
+   </task>
+  </task>
+  <task status="1" subject="Install Database" expandedContexts="('taskviewer',)" startdate="2010-10-03 07:17:00" percentageComplete="100" id="66815696:1286133078.71" completiondate="2010-10-07 09:03:58.072203">
+   <task status="1" subject="SQLserver" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66740624:1286133078.71" completiondate="2010-10-07 09:03:58.072203">
+    <task status="1" subject="Mixed authentication" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66725776:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+    <task status="1" subject="Apply servicepacks" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66727056:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+   </task>
+   <task status="1" subject="Oracle" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66807760:1286133078.71" completiondate="2010-10-07 09:03:58.072203">
+    <task status="1" subject="Install" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66751248:1286133078.71" completiondate="2010-10-07 09:03:58.072203">
+     <task status="1" subject="Set unicode charset" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66742032:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+     <task status="1" subject="Set blocksize same as Filesystem" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66748752:1286133078.71" completiondate="2010-10-07 09:03:58.072203">
+      <task status="1" subject="to find block size: fsutil fsinfo ntfsinfo C: check Bytes Per Cluster" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66743376:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+     </task>
+     <task status="1" subject="disable 11g security policies" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66750032:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+    </task>
+    <task status="1" subject="post-install" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66806544:1286133078.71" completiondate="2010-10-07 09:03:58.072203">
+     <task status="1" subject="set NOLOGGING on tablespaces" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66764688:1286133078.71" completiondate="2010-10-07 09:03:58.072203">
+      <task status="1" subject="SYSTEM" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66760912:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+      <task status="1" subject="SYSAUX" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66762192:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+      <task status="1" subject="USERS" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66763472:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+     </task>
+     <task status="1" subject="Increase datafile for SYSTEM tablespace to 1 GB" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66774224:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+     <task status="1" subject="Increase PROCESSES and SESSIONS above 500" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66775504:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+     <task status="1" subject="Set VSS and DBConsole services as Manual" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66776784:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+     <task status="1" subject="Verify tnsnames.ora" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66786320:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+     <task status="1" subject="Verify SQLDeveloper" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66787600:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+     <task status="1" subject="Install SSL root certificate in IE" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66788880:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+    </task>
+   </task>
+   <task status="1" subject="take snapshot after config!" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66809040:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+   <task status="1" subject="Create dbs with epmhelper" startdate="2010-10-03 07:17:52" percentageComplete="100" id="66814480:1286133078.71" completiondate="2010-10-07 09:03:58.072203"/>
+  </task>
+  <task status="1" subject="Install products" expandedContexts="('taskviewer',)" startdate="2010-10-03 07:17:52" id="67704336:1286133078.73">
+   <task status="1" subject="Run installer(s)" startdate="2010-10-03 07:17:52" id="66826576:1286133078.71">
+    <task status="1" subject="take snapshot afterwards!" startdate="2010-10-03 07:17:52" id="66817104:1286133078.71"/>
+   </task>
+   <task status="1" subject="Configuration" startdate="2010-10-03 07:17:52" id="66864144:1286133078.71">
+    <task status="1" subject="Foundation / HSS" startdate="2010-10-03 07:17:52" id="66827920:1286133078.71"/>
+    <task status="1" subject="HFM" startdate="2010-10-03 07:17:52" id="66829200:1286133078.71"/>
+    <task status="1" subject="EPMA" startdate="2010-10-03 07:17:52" id="66838736:1286133078.71"/>
+    <task status="1" subject="CalcMan" startdate="2010-10-03 07:17:52" id="66840016:1286133078.71"/>
+    <task status="1" subject="FR etc" startdate="2010-10-03 07:17:52" id="66841296:1286133078.71"/>
+    <task status="1" subject="rerun WebServer Config" startdate="2010-10-03 07:17:52" id="66842576:1286133078.71"/>
+    <task status="1" subject="if >= Talleyrand, define new TEMP folder for WL" startdate="2010-10-03 07:17:52" id="66852112:1286133078.71"/>
+    <task status="1" subject="Create and Provision useradmin / password" startdate="2010-10-03 07:17:52" id="66853392:1286133078.71"/>
+    <task status="1" subject="(Opt) Set service dependencies" startdate="2010-10-03 07:17:52" id="66854672:1286133078.71"/>
+   </task>
+   <task status="1" subject="Create applications" startdate="2010-10-03 07:17:52" id="67570064:1286133078.72">
+    <task status="1" subject="HFM classic apps" startdate="2010-10-03 07:17:52" id="66886864:1286133078.72">
+     <task status="1" subject="use HAT scripts" startdate="2010-10-03 07:17:52" id="66884368:1286133078.72">
+      <task status="1" subject="Comma" startdate="2010-10-03 07:17:52" id="66865616:1286133078.72"/>
+      <task status="1" subject="Simple" startdate="2010-10-03 07:17:52" id="66866896:1286133078.72"/>
+      <task status="1" subject="Stat" startdate="2010-10-03 07:17:52" id="66877712:1286133078.72">
+       <task status="1" subject="missing ict" startdate="2010-10-03 07:17:52" id="66876496:1286133078.72"/>
+      </task>
+      <task status="1" subject="IFRS" startdate="2010-10-03 07:17:52" id="66878992:1286133078.72"/>
+     </task>
+     <task status="1" subject="Related docs" startdate="2010-10-03 07:17:52" id="66885648:1286133078.72"/>
+    </task>
+    <task status="1" subject="HFM EPMA apps" startdate="2010-10-03 07:17:52" id="67568848:1286133078.72">
+     <task status="1" subject="Scripts" startdate="2010-10-03 07:17:52" id="67543440:1286133078.72">
+      <task status="1" subject="create" startdate="2010-10-03 07:17:52" id="67535504:1286133078.72"/>
+      <task status="1" subject="import profiles  (script in 11.1.1.3 only)" startdate="2010-10-03 07:17:52" id="67536784:1286133078.72"/>
+      <task status="1" subject="execute profiles and set properties" startdate="2010-10-03 07:17:52" id="67538064:1286133078.72"/>
+     </task>
+     <task status="1" subject="deploy manually" startdate="2010-10-03 07:17:52" id="67558096:1286133078.72">
+      <task status="1" subject="Comma" startdate="2010-10-03 07:17:52" id="67544784:1286133078.72"/>
+      <task status="1" subject="Simple" startdate="2010-10-03 07:17:52" id="67546064:1286133078.72"/>
+      <task status="1" subject="Stat" startdate="2010-10-03 07:17:52" id="67555600:1286133078.72"/>
+      <task status="1" subject="IFRS" startdate="2010-10-03 07:17:52" id="67556880:1286133078.72"/>
+     </task>
+     <task status="1" subject="CalcMan rules" startdate="2010-10-03 07:17:52" id="67559376:1286133078.72"/>
+    </task>
+   </task>
+   <task status="1" subject="SSL" startdate="2010-10-03 07:17:52" id="67621264:1286133078.72">
+    <task status="1" subject="Import Blister CA to all cacerts" startdate="2010-10-03 07:17:52" id="67591504:1286133078.72">
+     <task status="1" subject="\hyperion\common\jre" startdate="2010-10-03 07:17:52" id="67571472:1286133078.72"/>
+     <task status="1" subject="Windows" startdate="2010-10-03 07:17:52" id="67581008:1286133078.72"/>
+     <task status="1" subject="WL jre" startdate="2010-10-03 07:17:52" id="67582288:1286133078.72"/>
+     <task status="1" subject="WL jrockit" startdate="2010-10-03 07:17:52" id="67583568:1286133078.72"/>
+     <task status="1" subject="WS jre" startdate="2010-10-03 07:17:52" id="67589008:1286133078.72"/>
+     <task status="1" subject="OAS jre" startdate="2010-10-03 07:17:52" id="67590288:1286133078.72"/>
+    </task>
+    <task status="1" subject="Generate certificate" startdate="2010-10-03 07:17:52" id="67605136:1286133078.72"/>
+    <task status="1" subject="Get it signed by Blister" startdate="2010-10-03 07:17:52" id="67606416:1286133078.72"/>
+    <task status="1" subject="Setup appservers to use certificate" startdate="2010-10-03 07:17:52" id="67607696:1286133078.72"/>
+   </task>
+   <task status="1" subject="Checks" startdate="2010-10-03 07:17:52" id="67703120:1286133078.73">
+    <task status="1" subject="HSS" startdate="2010-10-03 07:17:52" id="67633424:1286133078.72">
+     <task status="1" subject="LCM" startdate="2010-10-03 07:17:52" id="67622672:1286133078.72"/>
+     <task status="1" subject="HFM Security" startdate="2010-10-03 07:17:52" id="67623952:1286133078.72"/>
+    </task>
+    <task status="1" subject="HFM" startdate="2010-10-03 07:17:52" id="67672272:1286133078.72">
+     <task status="1" subject="Related Content" startdate="2010-10-03 07:17:52" id="67634768:1286133078.72"/>
+     <task status="1" subject="System Reports PDF" startdate="2010-10-03 07:17:52" id="67646864:1286133078.72">
+      <task status="1" subject="On Win2003, NETWORK SERVICE  might need full rights on FileTransfer folder" startdate="2010-10-03 07:17:52" id="67636112:1286133078.72"/>
+      <task status="1" subject="On Win2008, IIS AppPool\hfmAppPool  needs full rights on FileTransfer folder" startdate="2010-10-03 07:17:52" id="67645648:1286133078.72"/>
+     </task>
+     <task status="1" subject="Email" startdate="2010-10-03 07:17:52" id="67648144:1286133078.72"/>
+     <task status="1" subject="DCOM policies post-updates" startdate="2010-10-03 07:17:52" id="67649424:1286133078.72"/>
+     <task status="1" subject="Manage Taskflows" startdate="2010-10-03 07:17:52" id="67654864:1286133078.72"/>
+     <task status="1" subject="Load/Extract through web" startdate="2010-10-03 07:17:52" id="67656144:1286133078.72"/>
+     <task status="1" subject="IE8 &quot;Anonymous token&quot; error" startdate="2010-10-03 07:17:52" id="67671056:1286133078.72">
+      <task status="1" subject="DCOM to Connect/Identify seems to work" startdate="2010-10-03 07:17:52" id="67657488:1286133078.72"/>
+     </task>
+    </task>
+    <task status="1" subject="EPMA" startdate="2010-10-03 07:17:52" id="67673552:1286133078.72"/>
+    <task status="1" subject="BI" startdate="2010-10-03 07:17:52" id="67680272:1286133078.73">
+     <task status="1" subject="FR connections" startdate="2010-10-03 07:17:52" id="67679056:1286133078.73"/>
+    </task>
+    <task status="1" subject="Version-specific checks" startdate="2010-10-03 07:17:52" id="67693648:1286133078.73">
+     <task status="1" subject="11.1.x" startdate="2010-10-03 07:17:52" id="67692432:1286133078.73">
+      <task status="1" subject="verify Inventory created" startdate="2010-10-03 07:17:52" id="67681680:1286133078.73"/>
+      <task status="1" subject="Apply ATL fix" startdate="2010-10-03 07:17:52" id="67691216:1286133078.73"/>
+     </task>
+    </task>
+   </task>
+  </task>
+  <task status="1" subject="Usability addons" expandedContexts="('taskviewer',)" startdate="2010-10-03 07:17:52" id="67740624:1286133078.73">
+   <task status="1" subject="Browser shortcuts" startdate="2010-10-03 07:17:52" id="67716496:1286133078.73">
+    <task status="1" subject="IE" startdate="2010-10-03 07:17:52" id="67705744:1286133078.73"/>
+    <task status="1" subject="FF" startdate="2010-10-03 07:17:52" id="67715280:1286133078.73"/>
+   </task>
+   <task status="1" subject="scripts to start services" startdate="2010-10-03 07:17:52" id="67717776:1286133078.73"/>
+   <task status="1" subject="readme" startdate="2010-10-03 07:17:52" id="67719056:1286133078.73"/>
+   <task status="1" subject="pre-Talleyrand" startdate="2010-10-03 07:17:52" id="67735248:1286133078.73">
+    <task status="1" subject="check ldapbrowser java path" startdate="2010-10-03 07:17:52" id="67732752:1286133078.73"/>
+    <task status="1" subject="create connection in ldapbrowser" startdate="2010-10-03 07:17:52" id="67734032:1286133078.73"/>
+   </task>
+  </task>
+  <task status="1" subject="Create task in Thunderbird" startdate="2010-10-03 07:17:52" id="67741904:1286133078.73"/>
+  <task status="1" subject="Create catalog entry" startdate="2010-10-03 07:17:52" id="67743184:1286133078.73"/>
+  <task status="1" subject="Collab" startdate="2010-10-03 07:17:52" id="67752720:1286133078.73"/>
+ </task>
+ <syncmlconfig>
+  <TaskCoach-0000012b73815ac9c546ae15007f000000010001>
+   <spds>
+    <sources>
+     <TaskCoach-0000012b73815ac9c546ae15007f000000010001.Tasks/>
+     <TaskCoach-0000012b73815ac9c546ae15007f000000010001.Notes/>
+    </sources>
+    <syncml>
+     <Auth/>
+     <Conn/>
+    </syncml>
+   </spds>
+  </TaskCoach-0000012b73815ac9c546ae15007f000000010001>
+ </syncmlconfig>
+ <guid>
+0000012b73815ac9c546ae15007f000000010001
+</guid>
+</tasks>
