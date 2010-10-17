@@ -9,5 +9,17 @@ It requires the PyKDE bindings to be installed, and has only been tested on Kubu
 To install:
 
 * cd taskplasma
-* zip -r taskplasma.zip .
-* plasmapkg -i taskplasma.zip
+* zip -r ../taskplasma.zip .
+* plasmapkg -i ../taskplasma.zip
+
+============
+GetStuffBack
+============
+Isn't it annoying when people borrow stuff from you and never give it back?
+This applet will track your loaned items and remind you of "overdue" returns.
+It requires the PyKDE bindings to be installed, and has only been tested on Kubuntu 10.04 (KDE 4.5).
+To install:
+
+* cd getstuffback
+* zip -r ../getstuffback.zip .
+* plasmapkg -i ../getstuffback.zip
