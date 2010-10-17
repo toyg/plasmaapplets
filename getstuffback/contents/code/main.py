@@ -13,6 +13,12 @@
 # under the Licence.
 # /
 
+# TODO: config option to set grace period (might want to move that calculation
+# in the model really)
+# TODO: try a fancier view (listview ?) rather than treeview.
+# TODO: export/import features (csv? ics? taskcoach?)
+# TODO: for extra bonus points, feature to "mail person" (hooked to Akonadi ?)
+
 from datetime import datetime
 from os.path import abspath
 from PyQt4 import uic
