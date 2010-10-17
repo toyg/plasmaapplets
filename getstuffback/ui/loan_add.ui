@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LoanAddDialog</class>
+ <widget class="QDialog" name="LoanAddDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>374</width>
+    <height>256</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Add Loan</string>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="labelItemDescription">
+       <property name="text">
+        <string>Item Loaned</string>
+       </property>
+       <property name="buddy">
+        <cstring>lineItemDescription</cstring>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPlainTextEdit" name="lineItemDescription">
+       <property name="toolTip">
+        <string>Enter a description of what you loaned</string>
+       </property>
+       <property name="tabChangesFocus">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelPerson">
+       <property name="text">
+        <string>Person</string>
+       </property>
+       <property name="buddy">
+        <cstring>linePerson</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="linePerson">
+       <property name="toolTip">
+        <string>Enter the borrower name</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="labelItemType">
+       <property name="text">
+        <string>Item Type</string>
+       </property>
+       <property name="buddy">
+        <cstring>comboItemType</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QComboBox" name="comboItemType">
+       <property name="toolTip">
+        <string>(Optional) Enter item type, e.g. CD, DVD etc</string>
+       </property>
+       <property name="editable">
+        <bool>true</bool>
+       </property>
+       <property name="insertPolicy">
+        <enum>QComboBox::InsertAlphabetically</enum>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QComboBox::AdjustToContents</enum>
+       </property>
+       <property name="frame">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="labelDate">
+       <property name="text">
+        <string>Loan Date</string>
+       </property>
+       <property name="buddy">
+        <cstring>dteDate</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QDateTimeEdit" name="dteDate">
+       <property name="toolTip">
+        <string>Date you loaned the item</string>
+       </property>
+       <property name="accelerated">
+        <bool>true</bool>
+       </property>
+       <property name="date">
+        <date>
+         <year>2010</year>
+         <month>1</month>
+         <day>1</day>
+        </date>
+       </property>
+       <property name="time">
+        <time>
+         <hour>18</hour>
+         <minute>0</minute>
+         <second>0</second>
+        </time>
+       </property>
+       <property name="maximumDate">
+        <date>
+         <year>2999</year>
+         <month>12</month>
+         <day>31</day>
+        </date>
+       </property>
+       <property name="minimumDate">
+        <date>
+         <year>1900</year>
+         <month>1</month>
+         <day>1</day>
+        </date>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="labelExpectedDate">
+       <property name="text">
+        <string>Expected On</string>
+       </property>
+       <property name="buddy">
+        <cstring>dteExpectedDate</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QDateTimeEdit" name="dteExpectedDate">
+       <property name="toolTip">
+        <string>When you expect to get your stuff back</string>
+       </property>
+       <property name="accelerated">
+        <bool>true</bool>
+       </property>
+       <property name="date">
+        <date>
+         <year>2010</year>
+         <month>1</month>
+         <day>1</day>
+        </date>
+       </property>
+       <property name="time">
+        <time>
+         <hour>18</hour>
+         <minute>0</minute>
+         <second>0</second>
+        </time>
+       </property>
+       <property name="maximumDate">
+        <date>
+         <year>2999</year>
+         <month>12</month>
+         <day>31</day>
+        </date>
+       </property>
+       <property name="minimumDate">
+        <date>
+         <year>1900</year>
+         <month>1</month>
+         <day>1</day>
+        </date>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>dteDate</sender>
+   <signal>dateTimeChanged(QDateTime)</signal>
+   <receiver>dteExpectedDate</receiver>
+   <slot>setDateTime(QDateTime)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>187</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>127</x>
+     <y>210</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>LoanAddDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>138</x>
+     <y>239</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>138</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

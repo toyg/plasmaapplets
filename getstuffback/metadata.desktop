@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=getstuffback
+Type=Service
+ServiceTypes=Plasma/Applet
+Icon=./view-pim-tasks.png
+X-Plasma-API=python
+X-Plasma-MainScript=code/main.py
+X-Plasma-DefaultSize=550,250
+X-KDE-PluginInfo-Author=Giacomo Lacava
+X-KDE-PluginInfo-Email=g.lacava@gmail.com
+X-KDE-PluginInfo-Name=getstuffback
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=http://blog.pythonaro.com
+X-KDE-PluginInfo-Category=Utilities
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
