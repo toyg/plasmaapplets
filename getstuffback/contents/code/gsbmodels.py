@@ -6,22 +6,22 @@
 # Licensed under the European Union Public License, Version 1.1.
 # You may not use this work except in compliance with the Licence.
 # You may obtain a copy of the Licence at http://ec.europa.eu/idabc/eupl5
-# Unless required by applicable law or agreed to in writing, software distributed 
+# Unless required by applicable law or agreed to in writing,software distributed 
 # under the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR 
 # CONDITIONS OF ANY KIND, either express or implied.
-# See the Licence for the specific language governing permissions and limitations 
+# See the Licence for specific language governing permissions and limitations 
 # under the Licence.
 # /
 
 from datetime import datetime
 from os.path import exists
+import uuid
 import xml.etree.ElementTree as etree
-import pickle, uuid, codecs
 
 from toyutils import dotdict, attr_to_header
 
 from PyQt4.QtCore import Qt, QDateTime, QModelIndex, QVariant, QString, \
-                        QAbstractTableModel,QAbstractItemModel, QFile, QIODevice
+                        QAbstractTableModel
 
 from PyKDE4.kdecore import KStandardDirs
 
@@ -61,7 +61,8 @@ class GSBDatabase(object):
                     if (attrNode.tag in ['date','expected_date']) and (
                                                     attrNode.text is not None):
                         try:
-                            dateObj = datetime.strptime(attrNode.text,"%Y-%m-%dT%H:%M:%f")
+                            dateObj = datetime.strptime(attrNode.text,
+                                                            "%Y-%m-%dT%H:%M:%f")
                             l[attrNode.tag] = dateObj
                         except ValueError:
                             pass # ignore invalid data
@@ -132,7 +133,8 @@ class GSBDatabase(object):
 
 
 class GSBDbModel(QAbstractTableModel,GSBDatabase):
-    sections = ['ID','item_description','item_type','person','date','expected_date']
+    sections = ['ID','item_description','item_type','person','date',
+                                                                'expected_date']
     
     def __init__(self,parent=None):
         super(QAbstractTableModel, self).__init__(parent)
