@@ -18,6 +18,7 @@ from PyQt4.QtCore import Qt, QVariant, QDateTime, QString
 from PyQt4.QtGui import QDialog, QMessageBox, QColor, QDateTimeEdit, \
                         QStyledItemDelegate, QWidget
 from PyQt4 import uic
+from PyKDE4.kdecore import ki18n
 from PyKDE4.kdeui import KColorButton
 from toyutils import list_to_stringlist
 
@@ -51,22 +52,22 @@ class AddDlg(QDialog):
                 
     def add(self,button=None):
         if self.realDlg.lineItemDescription.toPlainText().isEmpty():
-            QMessageBox.critical(self, "Missing description", 
-                """Please enter a short description for the item, 
-                e.g. 'X-Files boxset'""")
+            QMessageBox.critical(self, ki18n("Missing description"), 
+                ki18n("""Please enter a short description for the item, 
+                e.g. 'X-Files boxset'"""))
             return False
         elif self.realDlg.linePerson.text().isEmpty():
-            QMessageBox.critical(self, "Missing person name", 
-                """Please enter the name of the person. How can you get your
-                stuff back if you don't know who has it? ;-) """)
+            QMessageBox.critical(self, ki18n("Missing person name"), 
+                ki18n("""Please enter the name of the person. How can you get your
+                stuff back if you don't know who has it? ;-) """))
             return False
         
         date = self.realDlg.dteDate.dateTime().toPyDateTime()
         dateExpected = self.realDlg.dteExpectedDate.dateTime().toPyDateTime()
         if dateExpected < date:
-            QMessageBox.critical(self, "Wrong expected date", 
-                """You expect to get stuff back before the loan even happens.
-                Please check your "Expected on" date.""")
+            QMessageBox.critical(self, ki18n("Wrong expected date"), 
+                ki18n("""You expect to get stuff back before the loan even happens.
+                Please check your "Expected on" date."""))
             return False
         
         self.accept()
@@ -152,7 +153,7 @@ class ConfigDlg(QWidget):
         grace_period = int(self.options.readEntry("grace","5").toString())
 
         self.btnColour = KColorButton(overdueColour, self)
-        self.realDlg.formLayout.addRow("Overdue Colour",self.btnColour)
+        self.realDlg.formLayout.addRow(ki18n("Overdue Colour"),self.btnColour)
         
         self.spinGrace = self.realDlg.spinGrace
         self.spinGrace.setValue(grace_period)
