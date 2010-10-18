@@ -146,8 +146,14 @@ class ConfigDlg(QWidget):
         self.realDlg = confDlg()
         self.realDlg.setupUi(self)
         
-        self.btnColour = KColorButton(self)
+        self.options = applet.config().group("general")
+        overdueColour = QColor(
+                            self.options.readEntry("overdue_colour","#ff6666"))
+        grace_period = int(self.options.readEntry("grace","5").toString())
+
+        self.btnColour = KColorButton(overdueColour, self)
         self.realDlg.formLayout.addRow("Overdue Colour",self.btnColour)
         
         self.spinGrace = self.realDlg.spinGrace
+        self.spinGrace.setValue(grace_period)
 
