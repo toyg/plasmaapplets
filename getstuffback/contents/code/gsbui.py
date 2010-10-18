@@ -16,15 +16,10 @@
 from datetime import datetime
 from PyQt4.QtCore import Qt, QVariant, QDateTime, QString
 from PyQt4.QtGui import QDialog, QMessageBox, QColor, QDateTimeEdit, \
-                        QStyledItemDelegate
+                        QStyledItemDelegate, QWidget
 from PyQt4 import uic
-
+from PyKDE4.kdeui import KColorButton
 from toyutils import list_to_stringlist
-
-# number of days before lights go off
-# this should eventually move to a preference
-GRACE_PERIOD = 5 
-
 
 class AddDlg(QDialog):
     
@@ -78,11 +73,16 @@ class AddDlg(QDialog):
 
 class LoanDelegate(QStyledItemDelegate):
     """Custom delegate class to override a few things """
-    def __init__(self,parent=None):
+    def __init__(self,applet,parent=None):
         super(LoanDelegate,self).__init__(parent)
+        self.applet = applet
+        self.options = applet.config().group("general")
                
     def paint(self, painter, option, index):
         self.initStyleOption( option, index) # required 
+        overdueColour = QColor(
+                            self.options.readEntry("overdue_colour","#ff6666"))
+        grace_period = int(self.options.readEntry("grace","5").toString())
         if index.isValid():
             
             # -- begin overriding color depending on date
@@ -106,11 +106,11 @@ class LoanDelegate(QStyledItemDelegate):
             elif type(dateQv) == type(QDateTime()):
                 date = dateQv.toPyDateTime()
                         
-            if (today - date).days > GRACE_PERIOD:
-                color = QColor("#ff6666")
+            if (today - date).days > grace_period:
+                
                 
                 painter.save()
-                painter.fillRect(option.rect, color)
+                painter.fillRect(option.rect, overdueColour)
                 painter.translate(option.rect.x(), option.rect.y())
                 painter.restore()
             # -- end overriding color depending on date
@@ -138,4 +138,16 @@ class LoanDelegate(QStyledItemDelegate):
     
 
 
+class ConfigDlg(QWidget):
+    def __init__(self,parent, applet):
+        super(ConfigDlg,self).__init__(parent)
+        path = applet.package().path() + "configui/config.ui"
+        confDlg, baseClass = uic.loadUiType(path)
+        self.realDlg = confDlg()
+        self.realDlg.setupUi(self)
+        
+        self.btnColour = KColorButton(self)
+        self.realDlg.formLayout.addRow("Overdue Colour",self.btnColour)
+        
+        self.spinGrace = self.realDlg.spinGrace
 

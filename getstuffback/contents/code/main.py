@@ -13,11 +13,9 @@
 # under the Licence.
 # /
 
-# TODO: config option to set grace period (might want to move that calculation
-# in the model really)
 # TODO: try a fancier view (listview ?) rather than treeview.
 # TODO: export/import features (csv? ics? taskcoach?)
-# TODO: for extra bonus points, feature to "mail person" (hooked to Akonadi ?)
+# TODO: for extra bonus points, feature to "mail person" 
 
 from datetime import datetime
 from os.path import abspath
@@ -25,12 +23,12 @@ from PyQt4 import uic
 from PyQt4.QtCore import Qt, QString, QStringList, QModelIndex
 from PyQt4.QtGui import QGraphicsGridLayout, QHeaderView, QDialog, QMessageBox
                                                 
-from PyKDE4.kdeui import KStandardGuiItem
+from PyKDE4.kdeui import KStandardGuiItem, KPageDialog, KIcon, KDialog, KColorButton
 from PyKDE4.plasma import Plasma
 from PyKDE4 import plasmascript
 
 from gsbmodels import GSBDbModel, Loan
-from gsbui import AddDlg, LoanDelegate
+from gsbui import AddDlg, LoanDelegate, ConfigDlg
 from toyutils import list_to_stringlist
 
 class GSBApplet(plasmascript.Applet):
@@ -39,7 +37,7 @@ class GSBApplet(plasmascript.Applet):
         
         
     def init(self):
-        self.setHasConfigurationInterface(False)
+        self.setHasConfigurationInterface(True)
         self.setAspectRatioMode(Plasma.IgnoreAspectRatio)
         
         self.settings = self.config()
@@ -86,6 +84,7 @@ class GSBApplet(plasmascript.Applet):
                                                 QHeaderView.ResizeToContents)
         self.view.nativeWidget().setItemDelegate(
                                             LoanDelegate(
+                                                    self.applet,
                                                     self.view.nativeWidget()))
 
         
@@ -96,7 +95,30 @@ class GSBApplet(plasmascript.Applet):
         
         self.btnAdd.clicked.connect(self.add_loan)
         self.btnRemove.clicked.connect(self.remove_loan)
+
+    def createConfigurationInterface(self, parent):
+        self.configDlg = ConfigDlg(parent, self.applet)
+        page = parent.addPage(self.configDlg,"Options")
+        page.setIcon(KIcon("user-desktop"))
+
+        parent.okClicked.connect(self.configAccepted)
+
+    def showConfigurationInterface(self):
+        dialog = KPageDialog()
+        dialog.setFaceType(KPageDialog.List)
+        dialog.setButtons( KDialog.ButtonCode(KDialog.Ok | KDialog.Cancel) )
+        self.createConfigurationInterface(dialog)
+        dialog.exec_()
         
+    def configAccepted(self):
+        grace_period = self.configDlg.spinGrace.value()
+        colour = self.configDlg.btnColour.color()
+        
+        options = self.settings.group("general")
+        options.writeEntry("grace",grace_period)
+        options.writeEntry("overdue_colour",colour.name())
+
+
     def add_loan(self,*args):
         addDlg = AddDlg(self)
         result = addDlg.exec_()
