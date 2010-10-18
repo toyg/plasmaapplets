@@ -22,12 +22,10 @@ from os.path import abspath
 from PyQt4 import uic
 from PyQt4.QtCore import Qt, QString, QStringList, QModelIndex
 from PyQt4.QtGui import QGraphicsGridLayout, QHeaderView, QDialog, QMessageBox
-
-from PyKDE4.kdecore import ki18n
+                                                
 from PyKDE4.kdeui import KStandardGuiItem, KPageDialog, KIcon, KDialog, KColorButton
 from PyKDE4.plasma import Plasma
 from PyKDE4 import plasmascript
-
 
 from gsbmodels import GSBDbModel, Loan
 from gsbui import AddDlg, LoanDelegate, ConfigDlg
@@ -52,7 +50,7 @@ class GSBApplet(plasmascript.Applet):
         self.layout.setColumnSpacing(0,5.0)
         
         self.lblTitle = Plasma.Label(self.applet)
-        self.lblTitle.setText(ki18n("Stuff to get back"))
+        self.lblTitle.setText("Stuff to get back")
         self.lblTitle.setAlignment(Qt.AlignHCenter)
         self.lblTitle.setStyleSheet("""QLabel { 
                                                 text-align:center; 
@@ -100,7 +98,7 @@ class GSBApplet(plasmascript.Applet):
 
     def createConfigurationInterface(self, parent):
         self.configDlg = ConfigDlg(parent, self.applet)
-        page = parent.addPage(self.configDlg,ki18n("Options"))
+        page = parent.addPage(self.configDlg,"Options")
         page.setIcon(KIcon("user-desktop"))
 
         parent.okClicked.connect(self.configAccepted)
