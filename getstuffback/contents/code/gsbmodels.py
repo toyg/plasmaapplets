@@ -23,7 +23,7 @@ from toyutils import dotdict, attr_to_header
 from PyQt4.QtCore import Qt, QDateTime, QModelIndex, QVariant, QString, \
                         QAbstractTableModel
 
-from PyKDE4.kdecore import KStandardDirs
+from PyKDE4.kdecore import KStandardDirs, ki18n
 
 
 class Loan(dotdict):
@@ -40,7 +40,7 @@ class Loan(dotdict):
     def get_time_from_loan(self, aDate = datetime.today() ):
         """return a timedelta between original loan date and a given date""" 
         if self.date is None:
-            raise Exception("Loan entered without a date!")
+            raise Exception(ki18n("Loan entered without a date!").toString())
             
         # if loan date is in the future, return None
         if aDate < self.date:
@@ -89,7 +89,7 @@ class GSBDatabase(object):
         if len(obj) < 1: 
             return None
         elif len(obj) > 1:
-            raise Exception("Duplicate item with ID %s" % loan_ID)
+            raise Exception(ki18n("Duplicate item with ID %1").arg(loan_ID).toString())
             
         return obj[0]
 

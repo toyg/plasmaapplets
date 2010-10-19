@@ -6,24 +6,25 @@
 # Licensed under the European Union Public License, Version 1.1.
 # You may not use this work except in compliance with the Licence.
 # You may obtain a copy of the Licence at http://ec.europa.eu/idabc/eupl5
-# Unless required by applicable law or agreed to in writing,software distributed 
-# under the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR 
+# Unless required by applicable law or agreed to in writing,software distributed
+# under the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR
 # CONDITIONS OF ANY KIND, either express or implied.
-# See the Licence for specific language governing permissions and limitations 
+# See the Licence for specific language governing permissions and limitations
 # under the Licence.
 # /
 
 # TODO: try a fancier view (listview ?) rather than treeview.
 # TODO: export/import features (csv? ics? taskcoach?)
-# TODO: for extra bonus points, feature to "mail person" 
+# TODO: for extra bonus points, feature to "mail person"
 
 from datetime import datetime
 from os.path import abspath
 from PyQt4 import uic
 from PyQt4.QtCore import Qt, QString, QStringList, QModelIndex
 from PyQt4.QtGui import QGraphicsGridLayout, QHeaderView, QDialog, QMessageBox
-                                                
-from PyKDE4.kdeui import KStandardGuiItem, KPageDialog, KIcon, KDialog, KColorButton
+
+from PyKDE4.kdecore import ki18n
+from PyKDE4.kdeui import KStandardGuiItem, KPageDialog, KIcon, KDialog, KColorButton, KIconLoader
 from PyKDE4.plasma import Plasma
 from PyKDE4 import plasmascript
 
@@ -34,12 +35,13 @@ from toyutils import list_to_stringlist
 class GSBApplet(plasmascript.Applet):
     def __init__(self,parent,args=None):
         plasmascript.Applet.__init__(self,parent)
-        
-        
+
+
     def init(self):
+
         self.setHasConfigurationInterface(True)
         self.setAspectRatioMode(Plasma.IgnoreAspectRatio)
-        
+
         self.settings = self.config()
 
         self.theme = Plasma.Svg(self)
@@ -48,26 +50,26 @@ class GSBApplet(plasmascript.Applet):
 
         self.layout = QGraphicsGridLayout(self.applet)
         self.layout.setColumnSpacing(0,5.0)
-        
+
         self.lblTitle = Plasma.Label(self.applet)
-        self.lblTitle.setText("Stuff to get back")
+        self.lblTitle.nativeWidget().setText(ki18n("Stuff to get back").toString())
         self.lblTitle.setAlignment(Qt.AlignHCenter)
-        self.lblTitle.setStyleSheet("""QLabel { 
-                                                text-align:center; 
-                                                font-style: italic; 
+        self.lblTitle.setStyleSheet("""QLabel {
+                                                text-align:center;
+                                                font-style: italic;
                                                 font-weight: bold;}""")
         self.layout.addItem(self.lblTitle,0,0,1,3)
-        
+
         self.btnAdd = Plasma.PushButton(self.applet)
         self.btnAdd.nativeWidget().setGuiItem(KStandardGuiItem.Add)
         self.layout.addItem(self.btnAdd,1,0)
-            
+
         self.btnRemove = Plasma.PushButton(self.applet)
         self.btnRemove.nativeWidget().setGuiItem(KStandardGuiItem.Remove)
         self.layout.addItem(self.btnRemove,1,2)
 
         self.db = GSBDbModel()
-        
+
         self.view = Plasma.TreeView(self.applet)
         self.view.setModel(self.db)
         self.view.nativeWidget().setColumnHidden(self.db.IDCOL,True)
@@ -87,18 +89,17 @@ class GSBApplet(plasmascript.Applet):
                                                     self.applet,
                                                     self.view.nativeWidget()))
 
-        
+
         self.layout.addItem(self.view,2,0,1,3)
 
         self.setLayout(self.layout)
-        #self.resize(350,500)
-        
+
         self.btnAdd.clicked.connect(self.add_loan)
         self.btnRemove.clicked.connect(self.remove_loan)
 
     def createConfigurationInterface(self, parent):
         self.configDlg = ConfigDlg(parent, self.applet)
-        page = parent.addPage(self.configDlg,"Options")
+        page = parent.addPage(self.configDlg,ki18n("Options").toString())
         page.setIcon(KIcon("user-desktop"))
 
         parent.okClicked.connect(self.configAccepted)
@@ -109,11 +110,11 @@ class GSBApplet(plasmascript.Applet):
         dialog.setButtons( KDialog.ButtonCode(KDialog.Ok | KDialog.Cancel) )
         self.createConfigurationInterface(dialog)
         dialog.exec_()
-        
+
     def configAccepted(self):
         grace_period = self.configDlg.spinGrace.value()
         colour = self.configDlg.btnColour.color()
-        
+
         options = self.settings.group("general")
         options.writeEntry("grace",grace_period)
         options.writeEntry("overdue_colour",colour.name())
@@ -132,7 +133,7 @@ class GSBApplet(plasmascript.Applet):
         self.db.add_loan(ln)
         self.db.dataChanged.emit(QModelIndex(),QModelIndex())
         self.db.reset()
-        
+
     def remove_loan(self,*args):
         deleteList = self.view.nativeWidget().selectionModel().selectedIndexes()
         rows = set()
