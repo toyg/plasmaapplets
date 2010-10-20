@@ -58,16 +58,18 @@ class AddDlg(QDialog):
             return False
         elif self.realDlg.linePerson.text().isEmpty():
             QMessageBox.critical(self, ki18n("Missing person name").toString(), 
-                ki18n("""Please enter the name of the person. How can you get your
-                stuff back if you don't know who has it? ;-) """).toString())
+                ki18n(
+                   """Please enter the name of the person. How can you get your
+                   stuff back if you don't know who has it? ;-) """).toString())
             return False
         
         date = self.realDlg.dteDate.dateTime().toPyDateTime()
         dateExpected = self.realDlg.dteExpectedDate.dateTime().toPyDateTime()
         if dateExpected < date:
             QMessageBox.critical(self, ki18n("Wrong expected date").toString(), 
-                ki18n("""You expect to get stuff back before the loan even happens.
-                Please check your "Expected on" date.""").toString())
+                ki18n(
+                   """You expect to get stuff back before the loan even happens.
+                   Please check your "Expected on" date.""").toString())
             return False
         
         self.accept()
@@ -131,7 +133,7 @@ class LoanDelegate(QStyledItemDelegate):
                     if data.toString() == "":
                         data = datetime.today()
                     editor = QDateTimeEdit(data)
-                    editor.setCalendarPopup(True)
+                    editor.setCalendarPopup(True)                    
                     self.updateEditorGeometry(editor, option,index )
                     # by default it's a bit too small
                     editor.setFixedWidth(option.rect.width() + 50)
@@ -156,7 +158,8 @@ class ConfigDlg(QWidget):
         grace_period = int(self.options.readEntry("grace","5").toString())
 
         self.btnColour = KColorButton(overdueColour, self)
-        self.realDlg.formLayout.addRow(ki18n("Overdue Colour").toString(),self.btnColour)
+        self.realDlg.formLayout.addRow(ki18n("Overdue Colour").toString(),
+                                                                self.btnColour)
         
         self.spinGrace = self.realDlg.spinGrace
         self.spinGrace.setValue(grace_period)
