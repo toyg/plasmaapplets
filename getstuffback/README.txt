@@ -17,7 +17,7 @@ Installation
 ============
 
 * From zip: plasmapkg -i getstuffback.zip
-* From source: ./install-getstuffback.sh
+* From source (presuming you pulled the entire tree athttp://github.com/toyg/plasmaapplets): ./install-getstuffback.sh  
 
 You can then right-click on your desktop, select Add Widget... and double-click to add the applet to desktop.
 NOTE: this applet has been optimized for usage on a desktop/dashboard. Adding it to a Panel might give unpredictable results.
