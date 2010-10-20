@@ -134,7 +134,7 @@ class LoanDelegate(QStyledItemDelegate):
                     editor.setCalendarPopup(True)
                     self.updateEditorGeometry(editor, option,index )
                     # by default it's a bit too small
-                    editor.setFixedWidth(option.rect.width() + 50) 
+                    editor.setFixedWidth(option.rect.width() + 50)
                     # FIXME: resulting position is still wrong
                     return editor
                     
