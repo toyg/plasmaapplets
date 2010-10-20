@@ -5,7 +5,7 @@ appletsDir=/home/glacava/MySoftware/plasmaapplets
 scriptname=`basename $0`
 appname=${scriptname:5:${#scriptname}-8}
 cd $appletsDir/$appname
-zip -r ../${appname}.zip .
+zip -r ../${appname}.zip . -x \*.sh \*.mine CMakeLists.txt \*CMakeLists* \*.pot \*.po \*Makefile
 cd ..
 plasmapkg -i ${appname}.zip
 plasmoidviewer ${appname}
