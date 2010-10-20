@@ -14,7 +14,7 @@
 # /
 
 from datetime import datetime
-from PyQt4.QtCore import Qt, QVariant, QDateTime, QString
+from PyQt4.QtCore import Qt, QVariant, QDateTime, QString, pyqtSlot
 from PyQt4.QtGui import QDialog, QMessageBox, QColor, QDateTimeEdit, \
                         QStyledItemDelegate, QWidget
 from PyQt4 import uic
@@ -49,7 +49,8 @@ class AddDlg(QDialog):
         # signals                   
         self.realDlg.buttonBox.accepted.connect(self.add)
         self.show()
-                
+
+    @pyqtSlot()
     def add(self,button=None):
         if self.realDlg.lineItemDescription.toPlainText().isEmpty():
             QMessageBox.critical(self, ki18n("Missing description").toString(), 

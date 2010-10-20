@@ -114,6 +114,7 @@ class GSBApplet(plasmascript.Applet):
         self.createConfigurationInterface(dialog)
         dialog.exec_()
 
+    @pyqtSlot()
     def configAccepted(self):
         grace_period = self.configDlg.spinGrace.value()
         colour = self.configDlg.btnColour.color()
@@ -124,7 +125,6 @@ class GSBApplet(plasmascript.Applet):
 
     @pyqtSlot()
     def add_loan(self,*args):
-        print args
         addDlg = AddDlg(self)
         result = addDlg.exec_()
         if result == False: return False
