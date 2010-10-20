@@ -19,7 +19,7 @@ from PyQt4.QtGui import QDialog, QMessageBox, QColor, QDateTimeEdit, \
                         QStyledItemDelegate, QWidget
 from PyQt4 import uic
 from PyKDE4.kdecore import ki18n
-from PyKDE4.kdeui import KColorButton
+from PyKDE4.kdeui import KColorButton, KDatePicker
 from toyutils import list_to_stringlist
 
 class AddDlg(QDialog):
@@ -133,6 +133,9 @@ class LoanDelegate(QStyledItemDelegate):
                     editor = QDateTimeEdit(data)
                     editor.setCalendarPopup(True)
                     self.updateEditorGeometry(editor, option,index )
+                    # by default it's a bit too small
+                    editor.setFixedWidth(option.rect.width() + 50) 
+                    # FIXME: resulting position is still wrong
                     return editor
                     
         return QStyledItemDelegate.createEditor(self,parent,option,index)
