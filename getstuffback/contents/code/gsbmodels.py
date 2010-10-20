@@ -5,7 +5,7 @@
 #
 # Licensed under the European Union Public License, Version 1.1.
 # You may not use this work except in compliance with the Licence.
-# You may obtain a copy of the Licence at http://ec.europa.eu/idabc/eupl5
+# You may obtain a copy of the Licence at http://ec.europa.eu/idabc/en/document/7774.html
 # Unless required by applicable law or agreed to in writing,software distributed 
 # under the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR 
 # CONDITIONS OF ANY KIND, either express or implied.

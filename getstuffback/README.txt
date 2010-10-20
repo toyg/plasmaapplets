@@ -17,7 +17,7 @@ Installation
 ============
 
 * From zip: plasmapkg -i getstuffback.zip
-* From source (presuming you pulled the entire tree athttp://github.com/toyg/plasmaapplets): ./install-getstuffback.sh  
+* From source (presuming you pulled the entire tree at http://github.com/toyg/plasmaapplets ): ./install-getstuffback.sh  
 
 You can then right-click on your desktop, select Add Widget... and double-click to add the applet to desktop.
 NOTE: this applet has been optimized for usage on a desktop/dashboard. Adding it to a Panel might give unpredictable results.
@@ -41,7 +41,7 @@ Copyright @ 2010 Giacomo Lacava, g.lacava@gmail.com
 
 Licensed under the European Union Public License, Version 1.1.
 You may not use this work except in compliance with the Licence.
-You may obtain a copy of the Licence at http://ec.europa.eu/idabc/eupl5
+You may obtain a copy of the Licence at http://ec.europa.eu/idabc/en/document/7774.html
 Unless required by applicable law or agreed to in writing, 
 software distributed under the Licence is distributed on an "AS IS" basis, 
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
