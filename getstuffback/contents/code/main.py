@@ -20,7 +20,7 @@
 from datetime import datetime
 from os.path import abspath
 from PyQt4 import uic
-from PyQt4.QtCore import Qt, QString, QStringList, QModelIndex
+from PyQt4.QtCore import Qt, QString, QStringList, QModelIndex, pyqtSlot
 from PyQt4.QtGui import QGraphicsGridLayout, QHeaderView, QDialog, QMessageBox
 
 from PyKDE4.kdecore import ki18n
@@ -119,8 +119,9 @@ class GSBApplet(plasmascript.Applet):
         options.writeEntry("grace",grace_period)
         options.writeEntry("overdue_colour",colour.name())
 
-
+    @pyqtSlot()
     def add_loan(self,*args):
+        print args
         addDlg = AddDlg(self)
         result = addDlg.exec_()
         if result == False: return False
@@ -134,6 +135,7 @@ class GSBApplet(plasmascript.Applet):
         self.db.dataChanged.emit(QModelIndex(),QModelIndex())
         self.db.reset()
 
+    @pyqtSlot()
     def remove_loan(self,*args):
         deleteList = self.view.nativeWidget().selectionModel().selectedIndexes()
         rows = set()
